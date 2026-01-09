@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WALSCOM Technologies Services Ltd</title>
+  <meta name="description" content="WALSCOM Technologies Services Ltd — CCTV, Solar, Fiber Optics, Networking, Electric Fence, Access Control, Intercom." />
+
+  <style>
+    :root{
+      --bg:#070A12;
+      --text:#EAF0FF;
+      --muted:#B9C6E6;
+      --line: rgba(255,255,255,.10);
+      --blue:#2B6CFF;
+      --gold:#F5C451;
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(900px 500px at 20% 10%, rgba(43,108,255,.22), transparent 60%),
+        radial-gradient(900px 500px at 80% 20%, rgba(245,196,81,.16), transparent 60%),
+        radial-gradient(900px 600px at 50% 120%, rgba(43,108,255,.18), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      overflow-x:hidden;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{width:min(1150px, 92vw); margin:0 auto}
+    .sr{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden}
+
+    /* NAV */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(14px);
+      background: rgba(7,10,18,.65);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0; gap:14px;
+    }
+    .brand{display:flex; align-items:center; gap:12px; min-width: 240px}
+    .logo{
+      width:38px; height:38px; border-radius:12px;
+      background: linear-gradient(135deg, var(--blue), #0f2c86);
+      position:relative;
+      box-shadow: 0 12px 30px rgba(43,108,255,.22);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .logo:after{
+      content:"";
+      position:absolute; inset:10px 11px 10px 11px;
+      border-radius:10px;
+      border:2px solid rgba(245,196,81,.85);
+      transform: rotate(10deg);
+    }
+    .brand h1{font-size:14px; margin:0; letter-spacing:.5px}
+    .brand p{margin:2px 0 0; font-size:12px; color:var(--muted)}
+    .links{display:flex; flex-wrap:wrap; gap:8px; justify-content:flex-end}
+    .links a{
+      font-size:13px;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid transparent;
+      color:var(--muted);
+      transition:.18s ease;
+    }
+    .links a:hover{
+      color:var(--text);
+      border-color: rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+    }
+    .cta{display:flex; gap:10px; align-items:center}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:8px;
+      padding:11px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color:var(--text);
+      font-size:13px;
+      cursor:pointer;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      user-select:none;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.18);
+    }
+    .btn.primary{
+      border:none;
+      background: linear-gradient(135deg, var(--blue), #3A8BFF);
+      box-shadow: 0 16px 40px rgba(43,108,255,.28);
+    }
+    .btn.primary:hover{filter: brightness(1.05)}
+
+    /* HERO */
+    .hero{padding:60px 0 26px}
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:20px;
+      align-items:stretch;
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero-main{padding:26px; position:relative; overflow:hidden}
+    .hero-main:before{
+      content:"";
+      position:absolute;
+      width:420px; height:420px;
+      right:-160px; top:-140px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(245,196,81,.22), transparent 55%),
+        radial-gradient(circle at 70% 70%, rgba(43,108,255,.22), transparent 60%);
+      filter: blur(2px);
+      opacity:.9;
+    }
+    .kicker{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:8px 12px;
+      border-radius:999px;
+      background: rgba(245,196,81,.10);
+      border:1px solid rgba(245,196,81,.18);
+      color: #FFE7A6;
+      font-size:12px;
+      letter-spacing:.4px;
+    }
+    .hero h2{
+      position:relative;
+      margin:14px 0 10px;
+      font-size:42px;
+      line-height:1.05;
+      letter-spacing:-.8px;
+    }
+    .hero h2 span{
+      background: linear-gradient(90deg, var(--gold), #fff);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+    .hero p{
+      position:relative;
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.6;
+      max-width: 62ch;
+    }
+    .hero-actions{
+      position:relative;
+      display:flex; flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+    .stats{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:10px;
+      position:relative;
+    }
+    .stat{
+      padding:12px 14px;
+      border-radius:16px;
+      background: rgba(0,0,0,.25);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .stat b{display:block; font-size:16px}
+    .stat small{color:var(--muted)}
+    .hero-side{padding:18px; display:flex; flex-direction:column; gap:12px}
+    .mini{
+      padding:14px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+    }
+    .mini h3{margin:0 0 6px; font-size:14px}
+    .mini p{margin:0; color:var(--muted); font-size:13px; line-height:1.5}
+    .badges{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+    .badge{
+      font-size:12px; color: var(--muted);
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+    }
+    .hint{font-size:12px; color: rgba(185,198,230,.85); margin-top:8px}
+
+    /* SECTIONS */
+    section{padding:34px 0}
+    .section-title{display:flex; align-items:flex-end; justify-content:space-between; gap:14px; margin-bottom:14px}
+    .section-title h3{margin:0; font-size:22px; letter-spacing:-.3px}
+    .section-title p{margin:0; color:var(--muted); font-size:13px; max-width: 64ch}
+    .grid{display:grid; grid-template-columns: repeat(12, 1fr); gap:12px}
+
+    /* SERVICES */
+    .service{
+      grid-column: span 4;
+      padding:16px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      position:relative;
+      overflow:hidden;
+      min-height: 160px;
+    }
+    .service:before{
+      content:"";
+      position:absolute; inset:-60px -60px auto auto;
+      width:140px; height:140px;
+      background: radial-gradient(circle, rgba(43,108,255,.18), transparent 65%);
+      transform: rotate(25deg);
+    }
+    .service:hover{transform: translateY(-3px); background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.18)}
+    .icon{
+      width:40px; height:40px; border-radius:14px;
+      display:grid; place-items:center;
+      background: rgba(43,108,255,.14);
+      border:1px solid rgba(43,108,255,.18);
+      margin-bottom:10px;
+      font-size:18px;
+    }
+    .service h4{margin:0 0 6px; font-size:15px}
+    .service p{margin:0; color:var(--muted); font-size:13px; line-height:1.55}
+
+    /* PROJECTS (vector thumbnails) */
+    .project{
+      grid-column: span 6;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(0,0,0,.22));
+      overflow:hidden;
+    }
+    .thumb{height:160px; border-bottom:1px solid rgba(255,255,255,.10); background: rgba(0,0,0,.15)}
+    .thumb svg{width:100%; height:100%; display:block}
+    .project-body{padding:16px 18px 18px}
+    .tag{
+      display:inline-flex; gap:8px; align-items:center;
+      font-size:12px; padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      color:var(--muted);
+      background: rgba(255,255,255,.04);
+    }
+    .project h4{margin:10px 0 6px; font-size:16px}
+    .project p{margin:0; color:var(--muted); font-size:13px; line-height:1.6}
+    .meta{margin-top:12px; display:flex; flex-wrap:wrap; gap:8px}
+    .pill{
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.22);
+      color: var(--muted);
+      font-size:12px;
+    }
+
+    /* ABOUT */
+    .two{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
+    .panel{
+      padding:18px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+    }
+    .panel h4{margin:0 0 8px; font-size:16px}
+    .panel p{margin:0; color:var(--muted); font-size:13px; line-height:1.7}
+    .list{margin:12px 0 0; padding:0; list-style:none; display:grid; gap:10px}
+    .list li{
+      padding:12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size:13px;
+    }
+    .list b{color:var(--text)}
+
+    /* CONTACT (simple WhatsApp button) */
+    .contact{display:grid; grid-template-columns: 1.1fr .9fr; gap:12px; align-items:stretch}
+    .wa-box{
+      margin-top:12px;
+      padding:14px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.20);
+    }
+
+    .foot{
+      padding:26px 0 40px;
+      color:var(--muted);
+      border-top: 1px solid var(--line);
+      margin-top: 26px;
+    }
+    .foot .row{display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; align-items:center}
+    .small-links{display:flex; gap:10px; flex-wrap:wrap}
+    .small-links a{
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      font-size:12px;
+      color: var(--muted);
+    }
+    .small-links a:hover{color:var(--text); border-color: rgba(255,255,255,.18)}
+
+    @media (max-width: 920px){
+      .hero-grid{grid-template-columns: 1fr}
+      .contact{grid-template-columns: 1fr}
+      .service{grid-column: span 6}
+      .project{grid-column: span 12}
+      .two{grid-template-columns: 1fr}
+      .brand{min-width: unset}
+    }
+    @media (max-width: 560px){
+      .hero h2{font-size:34px}
+      .service{grid-column: span 12}
+      .links{display:none}
+    }
+  </style>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>WALSCOM Technologies Services Ltd</h1>
+          <p>Securing Technologies • Building Business</p>
+        </div>
+      </div>
+
+      <nav class="links" aria-label="Primary Navigation">
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#director">Director</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="cta">
+        <!-- Removed Email button as requested -->
+        <a class="btn" id="waChatTop" href="#" rel="noopener">WhatsApp Chat</a>
+        <a class="btn primary" id="waCallTop" href="#" rel="noopener">WhatsApp Call</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="hero">
+    <div class="wrap hero-grid">
+      <div class="card hero-main">
+        <div class="kicker">⚡ Security • Networking • Smart Infrastructure</div>
+        <h2>Reliable <span>tech services</span> for homes, schools, hospitals & businesses.</h2>
+        <p>
+          We design, install, and maintain CCTV, fiber optics, solar security systems, access control,
+          networking, and perimeter protection—built for real-world Nigeria: dust, rain, power issues, and long days.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="#services">Explore Services</a>
+          <a class="btn" href="#projects">See Projects</a>
+          <a class="btn" href="#contact">Send a WhatsApp Message</a>
+        </div>
+
+        <div class="stats">
+          <div class="stat"><b>Security Systems</b><small>CCTV • Electric Fence • Access Control</small></div>
+          <div class="stat"><b>Network & Fiber</b><small>LAN • VLAN • Fiber Backbones</small></div>
+          <div class="stat"><b>Support</b><small>Maintenance • Upgrades • Troubleshooting</small></div>
+        </div>
+      </div>
+
+      <aside class="card hero-side">
+        <div class="mini">
+          <h3>Quick Contact</h3>
+          <p style="margin:0;">
+            Phone/WhatsApp: <b>08037945050</b><br/>
+            Email: <b>agamunyekris@gmail.com</b>
+          </p>
+          <p class="hint">Top buttons open WhatsApp chat / call.</p>
+        </div>
+
+        <div class="mini">
+          <h3>Fast WhatsApp</h3>
+          <p style="margin:0; color:var(--muted); font-size:13px; line-height:1.6;">
+            Click to message the Director directly on WhatsApp for quotes, inspections, and support.
+          </p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
+            <a class="btn" id="waChatSide" href="#" rel="noopener">Chat</a>
+            <a class="btn primary" id="waCallSide" href="#" rel="noopener">Call</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h3>Services</h3>
+          <p>Professional installation, integration, and support—from the camera to the network core.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="service"><div class="icon">📷</div><h4>CCTV Installation & Maintenance</h4><p>IP/Analog systems, NVR/DVR setup, remote viewing, storage planning, and preventive maintenance.</p></div>
+        <div class="service"><div class="icon">☀️</div><h4>Solar Security Systems</h4><p>Solar-powered cameras, power backup design, batteries, charge controllers, and clean cable management.</p></div>
+        <div class="service"><div class="icon">🧵</div><h4>Fiber Optics Deployment</h4><p>Backbone links, trenching planning, splicing coordination, ODF/patch panels, and link testing.</p></div>
+        <div class="service"><div class="icon">🌐</div><h4>Networking & VLAN</h4><p>Structured cabling, switching, routing, VLAN segmentation, site-to-site connectivity, and network hardening.</p></div>
+        <div class="service"><div class="icon">🛡️</div><h4>Electric Fence Systems</h4><p>Perimeter security design, energizer setup, zoning, warning signage, and safety compliance checks.</p></div>
+        <div class="service"><div class="icon">🔐</div><h4>Access Control & Time Attendance</h4><p>Door locks, maglocks, biometric attendance, ‘door entry’ solutions, and integration with CCTV.</p></div>
+        <div class="service"><div class="icon">📞</div><h4>Intercom & PBX</h4><p>Multi-extension intercom, Panasonic PBX planning, zoning, and clean deployment across buildings.</p></div>
+        <div class="service"><div class="icon">🧰</div><h4>Support, Troubleshooting & Upgrades</h4><p>Fix offline cameras, upgrade storage, replace bad PoE ports, optimize bandwidth, and clean up messy installs.</p></div>
+        <div class="service"><div class="icon">📋</div><h4>Documentation & Training</h4><p>System documentation, labels, network maps, client handover, and staff training for daily operations.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h3>Projects</h3>
+          <p>Clean project cards </p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <article class="project">
+          <div class="thumb" aria-hidden="true">
+            <svg viewBox="0 0 1200 400" preserveAspectRatio="none">
+              <rect width="1200" height="400" fill="rgba(0,0,0,.15)"/>
+              <circle cx="170" cy="140" r="140" fill="rgba(43,108,255,.18)"/>
+              <circle cx="1030" cy="110" r="210" fill="rgba(245,196,81,.12)"/>
+              <path d="M0,260 C220,190 360,320 540,250 C720,180 860,320 1020,250 C1110,210 1150,230 1200,210 L1200,400 L0,400 Z"
+                    fill="rgba(43,108,255,.12)"/>
+              <g stroke="rgba(255,255,255,.22)" stroke-width="3" fill="none">
+                <path d="M190 160 C 360 70, 500 240, 660 150 C 820 60, 910 250, 1050 160"/>
+              </g>
+              <g fill="rgba(255,255,255,.22)">
+                <circle cx="190" cy="160" r="10"/><circle cx="660" cy="150" r="10"/><circle cx="1050" cy="160" r="10"/>
+              </g>
+            </svg>
+          </div>
+          <div class="project-body">
+            <span class="tag">🏫 School Security</span>
+            <h4>CCTV for Campus Monitoring</h4>
+            <p>Corridors, staircases, perimeter coverage, and recording retention planning.</p>
+            <div class="meta">
+              <span class="pill">Design</span><span class="pill">Install</span><span class="pill">Remote View</span><span class="pill">Support</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="thumb" aria-hidden="true">
+            <svg viewBox="0 0 1200 400" preserveAspectRatio="none">
+              <rect width="1200" height="400" fill="rgba(0,0,0,.15)"/>
+              <rect x="140" y="70" width="920" height="260" rx="22" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.14)"/>
+              <g fill="rgba(255,255,255,.10)">
+                <rect x="200" y="120" width="240" height="40" rx="12"/>
+                <rect x="200" y="180" width="360" height="40" rx="12"/>
+                <rect x="200" y="240" width="300" height="40" rx="12"/>
+              </g>
+              <g stroke="rgba(245,196,81,.35)" stroke-width="8">
+                <line x1="720" y1="130" x2="980" y2="130"/>
+                <line x1="720" y1="200" x2="980" y2="200"/>
+                <line x1="720" y1="270" x2="980" y2="270"/>
+              </g>
+            </svg>
+          </div>
+          <div class="project-body">
+            <span class="tag">🏥 Hospital Systems</span>
+            <h4>Surveillance + Network Support</h4>
+            <p>Uptime-first setup, clean cabling, and fast response for critical environments.</p>
+            <div class="meta">
+              <span class="pill">Uptime</span><span class="pill">Secure Access</span><span class="pill">Monitoring</span><span class="pill">Maintenance</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap two">
+      <div class="panel">
+        <h4>About WALSCOM</h4>
+        <p>
+          WALSCOM Technologies Services Ltd delivers practical security and network infrastructure.
+          We focus on neat installations, tested systems, and clear documentation—so clients get solutions, not stress.
+        </p>
+        <ul class="list">
+          <li><b>Quality first:</b> clean finishing, labeling, and tested links.</li>
+          <li><b>Client-focused:</b> we explain systems in simple language.</li>
+          <li><b>Maintenance-ready:</b> we build for upgrades and future expansion.</li>
+        </ul>
+      </div>
+
+      <div class="panel" id="director">
+        <h4>Director</h4>
+        <p>
+          <b>Chris Agamunye</b> — Technical Director.<br/>
+          Focused on security systems, networking, fiber deployments, and reliable support.
+        </p>
+        <ul class="list">
+          <li><b>Strength:</b> design + installation + troubleshooting.</li>
+          <li><b>Deliverables:</b> documentation, handover, and training.</li>
+          <li><b>Style:</b> practical, neat, and uptime-minded.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT: removed “messaging form” as requested -->
+  <section id="contact">
+    <div class="wrap contact">
+      <div class="panel">
+        <h4>Contact</h4>
+        <p style="color:var(--muted); line-height:1.7; margin:0;">
+          Click below to message or call on WhatsApp.
+        </p>
+
+        <div class="wa-box">
+          <p style="margin:0 0 10px;">
+            WhatsApp: <b>08037945050</b>
+          </p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn" id="waChatContact" href="#" rel="noopener">Message on WhatsApp</a>
+            <a class="btn primary" id="waCallContact" href="#" rel="noopener">Call on WhatsApp</a>
+          </div>
+          <p class="hint">Tip: If WhatsApp call doesn’t open on some computers, use “Message” — it always works.</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h4>Business Details</h4>
+        <p><b>WALSCOM Technologies Services Ltd</b><br/>Security • Networking • Solar • Fiber • Intercom</p>
+        <ul class="list">
+          <li><b>Phone/WhatsApp:</b> 08037945050</li>
+          <li><b>Email:</b> agamunyekris@gmail.com</li>
+          <li><b>Coverage:</b> Nigeria (projects nationwide)</li>
+        </ul>
+      </div>
+    </div>
+
+    <footer class="wrap foot">
+      <div class="row">
+        <div>© <span id="year"></span> WALSCOM Technologies Services Ltd. All rights reserved.</div>
+        <div class="small-links">
+          <a href="#services">Services</a>
+          <a href="#projects">Projects</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <script>
+    const PHONE_DISPLAY = "08037945050";
+    const PHONE_WA_INTL = "2348037945050"; // WhatsApp needs international format without +
+
+    // Why Email/Call sometimes "doesn't work":
+    // - tel: works mainly on phones, not always on laptops
+    // - mailto: works only if a mail app is configured
+    // WhatsApp links work on phone and on PC (WhatsApp Web)
+
+    // WhatsApp Message link (works everywhere)
+    const waMessageLink = (text) =>
+      `https://wa.me/${PHONE_WA_INTL}?text=${encodeURIComponent(text)}`;
+
+    // WhatsApp Call link:
+    // Some devices/apps support this; if not, user can still message.
+    const waCallLink = `https://wa.me/${PHONE_WA_INTL}`;
+
+    // Set all WhatsApp buttons
+    const defaultText = "Hello WALSCOM, I need a quote / assistance. Please respond. धन्यवाद";
+    document.getElementById("waChatTop").href = waMessageLink(defaultText);
+    document.getElementById("waCallTop").href = waCallLink;
+
+    document.getElementById("waChatSide").href = waMessageLink(defaultText);
+    document.getElementById("waCallSide").href = waCallLink;
+
+    document.getElementById("waChatContact").href = waMessageLink(defaultText);
+    document.getElementById("waCallContact").href = waCallLink;
+
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
